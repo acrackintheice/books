@@ -9,6 +9,12 @@ export class Book {
     @Column()
     title!: string;
 
+    @Column({nullable: true})
+    author!: string;
+
+    @Column({nullable: true})
+    cover!: string
+
     @Column()
     publishedAt!: Date;
 

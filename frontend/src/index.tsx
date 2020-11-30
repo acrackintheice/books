@@ -5,6 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RestLink } from 'apollo-link-rest';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import WebFont  from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Roboto:300,400,700', 'sans-serif']
+  }
+});
 
 const restLink = new RestLink({ uri: "http://localhost:3000/api/" });
 

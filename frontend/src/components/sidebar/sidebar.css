@@ -1,0 +1,79 @@
+.sidebar {
+  width: 256px;
+}
+
+.sidebar > .MuiPaper-root {
+  width: 256px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .section {
+    padding: 16px;
+}
+
+.userinfo .avatar {
+    display: flex;
+    justify-content: center;
+}
+
+.userinfo .avatar > .MuiAvatar-root {
+    width: 64px;
+    cursor: pointer;
+    height: 64px;
+}
+
+.userinfo .name {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    color: #546e7a;
+}
+
+.userinfo .mail {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar .navigation {
+    flex-grow: 1;
+
+
+}
+
+.sidebar .MuiListSubheader-root {
+    color: #546e7a;
+    letter-spacing: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+.sidebar .menuitem {
+    color: #546e7a;
+}
+
+.sidebar .menuitem span {
+    font-size: 0.875rem;
+    width: 100%;
+    letter-spacing: 0;
+    text-transform: none;
+    justify-content: flex-start;
+    margin: 0;
+    font-weight: 500;
+}
+
+.sidebar .menuitem svg {
+    margin-right: 8px;
+}
+
+.sidebar .menuitem:hover {
+    text-decoration: none;
+    background-color: rgba(38, 50, 56, 0.04);
+}
+
+.sidebar .credits {
+    text-align: center;
+    color: #546e7a;
+}

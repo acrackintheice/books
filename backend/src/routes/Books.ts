@@ -6,8 +6,6 @@ import { Book } from '../model/Book'
 const router = Router();
 const { BAD_REQUEST, CREATED, OK } = StatusCodes;
 
-
-
 /******************************************************************************
  *                      Get All books - "GET /api/books/all"
  ******************************************************************************/
