@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
-import GridListTile from "@material-ui/core/GridListTile";
+import React from "react";
 import Book from "../../../../model/Book";
 import {
   FetchResult,
@@ -10,13 +6,12 @@ import {
   MutationFunctionOptions,
   useMutation,
 } from "@apollo/client";
-import square from ".././../../../img/square.png";
-import placeholder from "../../../../img/placeholder.png";
+import { Link } from "@material-ui/core";
 
 const DELETE_BOOK = gql`
   mutation deleteBook($id: ID!) {
     book(id: $id)
-      @rest(type: "Book", path: "/books/{args.id}", method: "DELETE") {
+      @rest(type: "Book", path: "book/{args.id}", method: "DELETE") {
       id
     }
   }
@@ -36,37 +31,29 @@ interface BookListItemProps {
 }
 
 const BookListItem = ({ handleDeleteClick, book }: BookListItemProps) => {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [deleteBook]: [BookDeleteMutationType, any] = useMutation<Book, DeleteBookVariables>(DELETE_BOOK);
-
-  const createLoadingContent = () => (
-    <GridListTile key={book.id}>
-    <img src={placeholder} alt="loading ..." />
-    <GridListTileBar title="loading ..." subtitle={<span>by: No one</span>} />
-  </GridListTile>
-  )
+  const [deleteBook]: [BookDeleteMutationType, any] = useMutation<
+    Book,
+    DeleteBookVariables
+  >(DELETE_BOOK);
 
   return (
-      <GridListTile key={book.id}>
-        <img
-          src={square}
-          alt={book.title}
-          onLoad={() => setIsImageLoaded(true)}
-        />
-        {!isImageLoaded && createLoadingContent()}
-        <GridListTileBar
-          title={book.title}
-          subtitle={<span>by: {book.id}</span>}
-          actionIcon={
-            <IconButton
+    <div key={book.id} className="book item">
+      <div className="book image">
+        <img src={book.cover} alt={book.title} />
+      </div>
+      <div className="book info">
+        <div className="book title"><Link>{book.title}</Link></div>
+        <div className="book author"> {book.author}</div>
+        <div className="book actions">    
+            {/* <IconButton
               aria-label={`info about ${book.title}`}
               onClick={() => handleDeleteClick(book, deleteBook)}
             >
               <DeleteIcon />
-            </IconButton>
-          }
-        />
-      </GridListTile>
+            </IconButton> */}
+        </div>
+      </div>
+    </div>
   );
 };
 

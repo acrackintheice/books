@@ -1,2 +1,62 @@
-.book.list {
+.book.grid {
+    padding: 2em;
+    display: flex;
+    gap: 1em 2em;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.book.grid .book.item {
+
+}
+
+.book.grid .book.image img {
+    height: 280px;
+    width: 220px;
+    box-shadow: 0px 0px 3px #333;
+}
+
+.book.grid .book.image {
+    display: flex;
+    justify-content: center;
+}
+
+.book.grid .book.info {
+    display: grid;
+    grid-template-areas: "title"
+                         "author"
+                         "actions";
+    grid-template-columns: auto;
+    padding: 0.5em 0;
+}
+
+.book.grid .book.info div {
+    padding: 0 1em 0 1em;
+}
+
+.book.grid .book.info .book.book.title,
+.book.grid .book.info .book.author {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+/* .book.grid .book.actions {
+    grid-area: actions;
+} */
+
+.book.grid .book.title {
+    grid-area: title;
+    text-align: center;
+    color: #333;
+}
+
+.book.grid .book.title:hover {
+    cursor: pointer;
+}
+
+.book.grid .book.author {
+    grid-area: author;
+    color: #666;
+    text-align: center;
 }

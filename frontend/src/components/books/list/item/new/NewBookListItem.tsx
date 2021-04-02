@@ -27,6 +27,9 @@ interface NewBookListItemProps {
   book: Book;
 };
 
+
+
+
 const BookListItem = ({ book }: NewBookListItemProps) => {
   // const [deleteBook]: [BookDeleteMutationType, any] = useMutation<Book, DeleteBookVariables>(DELETE_BOOK);
   return (

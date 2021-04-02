@@ -6,13 +6,14 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import BookListItem, { BookDeleteMutationType } from "./item/BookListItem";
-import NewBookListItem from "./item/new/NewBookListItem";
 
 const GET_BOOKS = gql`
   query get_books {
-    books @rest(type: "Book", path: "books/") {
+    books @rest(type: "Book", path: "book/") {
       id
       title
+      cover
+      author
     }
   }
 `;
@@ -39,13 +40,9 @@ const BookList = () => {
   if (error) return <p>Error :(</p>;
 
   return (
-    <GridList className="book list" cellHeight={350} cols={6}>
-      <GridListTile key="Subheader" cols={6} style={{ height: "auto" }}>
-        <ListSubheader component="div">Books</ListSubheader>
-      </GridListTile>
-      <NewBookListItem book={{id: 1, title: 'kappa', cover:'cover', author:'none', publishedAt: new Date()}}/>
+    <div className="book grid">
       {data.books.map((book: Book) => <BookListItem handleDeleteClick={handleDeleteClick} book={book} />)}
-    </GridList>
+    </div>
   );
 };
 
